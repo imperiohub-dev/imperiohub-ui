@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "description": "Librería UI de ImperioHub con componentes reutilizables y temas personalizables.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imperiohub/imperiohub-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/imperiohub/imperiohub-ui/issues"
+  },
+  "homepage": "https://github.com/imperiohub/imperiohub-ui#readme",
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
