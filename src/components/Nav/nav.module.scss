@@ -1,0 +1,7 @@
+/* src/components/Nav/nav.module.scss */
+@use "./nav.mixins" as mx;
+
+/* ===== Base estructural (sin diseño) ===== */
+.father {
+  @include mx.NavBarMinimal();
+}

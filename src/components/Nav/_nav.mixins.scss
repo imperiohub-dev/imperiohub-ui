@@ -1,0 +1,40 @@
+@use "../../styles/variables" as v;
+@use "../../styles/tokens/token.minimalista" as bng;
+@use "../../styles/mixin" as m;
+
+// Contenedor principal (header)
+
+// El diseño final que engloba todo (lo usarás en .father)
+@mixin NavBarMinimal() {
+  @include m.box();
+  padding: v.$spacing-sm;
+  background-color: bng.$bng-surface-2;
+  div {
+    @include m.box();
+    @include m.row();
+    gap: 2rem;
+    a {
+      @include m.box();
+      @include m.link-reset();
+      @include m.text-primary($fs: v.$font-size-lg, $fw: v.$font-weight-lg);
+      @include m.row($jc: flex-start);
+      span {
+        @include m.center-box();
+        img {
+          border-radius: v.$border-radius-md;
+        }
+      }
+    }
+
+    nav {
+      @include m.box();
+      @include m.row();
+      a {
+        @include m.link-reset();
+        @include m.text-primary($fs: v.$font-size-lg, $fw: v.$font-weight-lg);
+        @include m.text-primary();
+      }
+      //   background-color: aquamarine;
+    }
+  }
+}

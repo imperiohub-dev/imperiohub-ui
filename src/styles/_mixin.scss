@@ -1,0 +1,83 @@
+@use "./variables" as v; // variables globales
+@use "./tokens/token.minimalista" as bng; // tu token Black&Gold
+// crear caja
+@mixin box() {
+  width: 100%;
+  margin: 0 auto;
+}
+@mixin row($gap: v.$spacing-md, $align: center, $jc: space-between) {
+  display: flex;
+  align-items: $align;
+  justify-content: $jc;
+  gap: $gap;
+}
+// ======================================================
+// CENTER BOX — centra una caja en pantalla o dentro de su contenedor
+// ======================================================
+@mixin center-box($direction: both) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // si quieres centrar solo en una dirección
+  @if $direction == horizontal {
+    align-items: normal;
+  } @else if $direction == vertical {
+    justify-content: normal;
+  }
+}
+// ======================================================
+// TEXTOS — Jerarquía base de navegación o títulos
+// ======================================================
+@mixin text-primary($fs: v.$font-size-lg, $fw: v.$font-weight-lg) {
+  font-family: v.$font-family;
+  color: bng.$bng-text-primary;
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// ======================================================
+// ENLACES — Reset tipográfico para usar dentro de la nav
+// (llámalo antes o dentro de cualquier link mixin)
+// ======================================================
+@mixin link-reset {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  user-select: none;
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px bng.$bng-focus-ring;
+    border-radius: v.$border-radius-sm;
+  }
+}
+@mixin text-secondary($fs: v.$font-size-sm, $fw: v.$font-weight-sm) {
+  font-family: v.$font-family;
+  color: bng.$bng-text-primary;
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@mixin border-radius($cl: none, $brs: v.$border-radius-sm) {
+  border: 1px solid $cl;
+  border-radius: $brs;
+}
+
+@mixin input() {
+  padding: v.$spacing-xs;
+  @include text-secondary();
+  @include border-radius($brs: v.$border-radius-xl);
+}
