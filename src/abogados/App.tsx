@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/agendarCita" element={<AgendarCita />} />
+          <Route path="/agendar-cita" element={<AgendarCita />} />
 
           {/* Redirección y 404 */}
           <Route path="/home" element={<Navigate to="/" replace />} />

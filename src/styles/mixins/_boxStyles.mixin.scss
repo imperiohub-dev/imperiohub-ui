@@ -1,0 +1,45 @@
+@use "../variables" as v; // variables globales
+@use "../mixin" as m; // variables globales
+@use "../tokens/token.minimalista" as tk_minimalista; // tu token Black&Gold
+
+@mixin with-bg-color($w: 100%, $h: auto, $bg-clr: none, $p: 0rem, $fd: block) {
+  @include m.box($w: $w, $h: $h, $p: $p, $bg-clr: $bg-clr);
+
+  @if $fd == block {
+    @include m.center-box();
+  } @else if $fd == row {
+    @include m.row();
+  }
+  gap: 2rem;
+  border-radius: v.$border-radius-xl;
+  h2,
+  h3 {
+    @include m.text-primary();
+  }
+  p,
+  span {
+    @include m.text-secondary();
+  }
+  a {
+    @include m.link-reset();
+    @include m.text-secondary($clr: tk_minimalista.$color-accent-gold);
+  }
+}
+
+@mixin with-bg-foto() {
+  @include with-bg-color($w: 100vw, $h: 40rem, $p: 2rem, $fd: block);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  isolation: isolate; // 👈 garantiza que el pseudo-elemento no afecte otros z-index
+
+  // Capa oscura sobre la imagen
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0; // cubre todo el contenedor
+    background: rgba(0, 0, 0, 0.5); // 👈 nivel de oscuridad (ajústalo)
+    z-index: -1; // se coloca entre el fondo y el contenido
+  }
+}

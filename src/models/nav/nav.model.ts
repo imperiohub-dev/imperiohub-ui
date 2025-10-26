@@ -1,9 +1,7 @@
 import type { ReactNode } from "react";
-import type { UI } from "../global.model";
-
+import type { UI, UINavigate } from "../global.model";
 export const defaultBrand = {
   title: "imperiohub",
-  href: "#",
   img: { src: "https://i.pravatar.cc/64?img=5", alt: "Logo" },
 };
 
@@ -36,17 +34,23 @@ interface HtmlPropsTypeSegmented extends HtmlPropsType {
   headerDivDivButton1?: UI<"button">;
   headerDivDivButton2?: UI<"button">;
 }
+
+interface Links extends UI<"a"> {
+  navigate?: UINavigate;
+  onClick?: () => void;
+}
 export interface NavModelProps {
   // “Relleno rápido”
   brand: {
     title: string; // texto de marca visible
-    href?: string; // destino del brand
     // Logo: o pasas src/alt, o pasas un ReactNode custom (ícono, SVG, etc.)
     img: UI<"img">; //
     node?: ReactNode;
+    navigate?: UINavigate;
+    onClick?: () => void;
   };
   // Enlaces del menú
-  links: UI<"a">[];
+  links: Links[];
   // Props para personalizar elementos internos
   htmlProps?: HtmlPropsType;
 }

@@ -1,4 +1,6 @@
 @use "../styles/base/normalice";
+@use "./token.abogados" as v;
+@use "../styles/mixin" as m;
 
 html {
   box-sizing: border-box;
@@ -11,4 +13,13 @@ html {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+body {
+  @include m.box($p: 0rem);
+  @include m.center-box();
+  //
+  overflow-x: hidden;
+  // overflow-y: hidden;
+  //
+  background-color: v.$color-bg-primary;
 }

@@ -1,4 +1,6 @@
 import styles from "../../nav.module.scss";
+import { useNavigate } from "react-router-dom";
+import handleNavigate from "../../../../utils/handleNavigate";
 import {
   defaultLinks,
   defaultBrand,
@@ -12,23 +14,30 @@ export default function NavBarMinimal({
   links,
   htmlProps,
 }: NavModelProps): JSX.Element {
+  const navigate = useNavigate();
   const b = brand ?? defaultBrand;
   const arrLinks = links ?? defaultLinks;
-
-  const brandHref = b.href ?? defaultBrand.href ?? "/";
-  const brandAlt = b.img?.alt ?? defaultBrand.img?.alt ?? b.title ?? "logo";
+  const brandCallBack = b?.onClick;
 
   return (
     <header className={styles.father} {...htmlProps?.header}>
       <div {...htmlProps?.headerDiv}>
-        <a href={brandHref} {...htmlProps?.headerDivA}>
+        <a
+          {...htmlProps?.headerDivA}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            brandCallBack?.();
+            handleNavigate(navigate, brand?.navigate);
+          }}
+        >
           <span {...htmlProps?.headerDivASpan}>
             {b?.node ? (
               <>{b.node}</>
             ) : (
               <img
                 src={b?.img?.src ?? defaultBrand.img.src}
-                alt={brandAlt}
+                alt={b.img?.alt ?? defaultBrand.img?.alt}
                 {...htmlProps?.headerDivASpanImg}
               />
             )}
@@ -37,17 +46,24 @@ export default function NavBarMinimal({
         </a>
 
         <nav {...htmlProps?.headerDivNav}>
-          {arrLinks.map(({ label, href, ...ctx }) => (
-            <a
-              key={href ?? String(label)}
-              href={href}
-              className={styles["nav__item"]}
-              {...ctx}
-            >
-              {label}
-            </a>
-          ))}
+          {arrLinks.map(
+            ({ label, navigate: navigat, onClick: cb, ...ctx }, inx) => (
+              <a
+                key={inx}
+                className={styles["nav__item"]}
+                onClick={() => {
+                  cb?.();
+                  handleNavigate(navigate, navigat);
+                }}
+                {...ctx}
+              >
+                {label}
+              </a>
+            )
+          )}
         </nav>
+
+        <button>Contacto Urgente</button>
       </div>
     </header>
   );

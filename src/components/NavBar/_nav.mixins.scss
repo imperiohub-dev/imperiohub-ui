@@ -8,16 +8,18 @@
 @mixin NavBarMinimal() {
   @include m.box();
   padding: v.$spacing-sm;
-  background-color: bng.$bng-surface-2;
+  background-color: bng.$color-bg-header;
   div {
     @include m.box();
     @include m.row();
+    // background-color: yellow;
     gap: 2rem;
     a {
-      @include m.box();
+      @include m.box($w: 60%);
       @include m.link-reset();
       @include m.text-primary($fs: v.$font-size-lg, $fw: v.$font-weight-lg);
       @include m.row($jc: flex-start);
+      // background-color: blue;
       span {
         @include m.center-box();
         img {
@@ -29,12 +31,24 @@
     nav {
       @include m.box();
       @include m.row();
+      // background-color: red;
       a {
         @include m.link-reset();
         @include m.text-primary($fs: v.$font-size-lg, $fw: v.$font-weight-lg);
         @include m.text-primary();
       }
       //   background-color: aquamarine;
+    }
+    button {
+      @include m.box($w: 40%, $h: 6rem);
+      @include m.text-primary(
+        $clr: bng.$color-bg-primary,
+        $fs: v.$font-size-lg,
+        $fw: v.$font-weight-lg
+      );
+      background-color: bng.$color-accent-gold;
+      border: 1px solid bng.$color-bg-gradient;
+      border-radius: v.$border-radius-xl;
     }
   }
 }

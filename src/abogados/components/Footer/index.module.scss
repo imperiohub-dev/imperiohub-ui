@@ -1,0 +1,173 @@
+/* ===== Justicia Digital — Palette ===== */
+$color-bg-primary: #0d141f;
+$color-bg-header: #111a27;
+$color-text-primary: #f5f6fa;
+$color-text-secondary: #b0b6c3;
+$color-accent-gold: #f6b73c;
+$color-accent-gold-dark: #d69e2e;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-bg-gradient: #1c2a3b;
+
+/* ===== Base ===== */
+.footer {
+  background: $color-bg-header;
+  color: $color-text-primary;
+  padding: 3.5rem 1.5rem 2rem;
+  border-top: 1px solid rgba(#000, 0.25);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ===== Brand ===== */
+.colBrand {
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brandLogo {
+  font-size: 2.2rem;
+  line-height: 1;
+  color: $color-accent-gold;
+}
+
+.brandName {
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.2px;
+}
+
+.tagline {
+  margin-top: 1.25rem;
+  color: $color-text-secondary;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 38ch;
+}
+
+/* ===== Columnas comunes ===== */
+.colTitle {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 0 0 1.25rem;
+}
+
+.linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li + li {
+    margin-top: 1rem;
+  }
+}
+
+.link {
+  color: $color-text-secondary;
+  text-decoration: none;
+  transition: color 160ms ease, transform 160ms ease;
+
+  &:hover {
+    color: $color-text-primary;
+    transform: translateX(2px);
+  }
+}
+
+/* ===== Contacto ===== */
+.colContact {
+  .contactItem {
+    color: $color-text-secondary;
+    margin: 0.6rem 0;
+  }
+}
+
+/* ===== Social ===== */
+.colSocial {
+}
+
+.socialRow {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.socialIcon {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba($color-bg-gradient, 0.35);
+  transition: background 160ms ease, transform 160ms ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: $color-text-secondary;
+    stroke-width: 1.5px;
+
+    /* Para los paths sólidos (Facebook) */
+    path {
+      fill: $color-text-secondary;
+      stroke: none;
+    }
+  }
+
+  &:hover {
+    background: rgba($color-accent-gold, 0.2);
+
+    svg path {
+      fill: $color-accent-gold;
+    }
+    svg {
+      stroke: $color-accent-gold;
+    }
+    transform: translateY(-2px);
+  }
+}
+
+/* ===== Bottom ===== */
+.bottom {
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+  text-align: center;
+  color: $color-text-secondary;
+}
+
+.separator {
+  border: 0;
+  border-top: 1px solid rgba($color-text-secondary, 0.25);
+  margin: 0 0 1.5rem;
+}
+
+.rights {
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+}
+
+.disclaimer {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}

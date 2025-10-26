@@ -1,4 +1,6 @@
 import type { JSX, ReactNode } from "react";
+import { type To, type NavigateFunction } from "react-router-dom";
+
 import React from "react";
 
 export enum THEME {
@@ -17,3 +19,5 @@ type ExtraPropsMap = {
 
 export type UI<T extends keyof JSX.IntrinsicElements> = PropsOf<T> &
   (T extends keyof ExtraPropsMap ? ExtraPropsMap[T] : object);
+
+export type UINavigate = To | ((navigate: NavigateFunction) => void);

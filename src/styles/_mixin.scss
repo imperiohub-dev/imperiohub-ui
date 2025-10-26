@@ -1,9 +1,41 @@
 @use "./variables" as v; // variables globales
 @use "./tokens/token.minimalista" as bng; // tu token Black&Gold
+
+// responsive
+@mixin responsive($device) {
+  @if $device == phone {
+    @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $device == tablet {
+    @media (min-width: 481px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $device == pc {
+    @media (min-width: 1025px) and (max-width: 1600px) {
+      @content;
+    }
+  } @else if $device == tv {
+    @media (min-width: 1601px) {
+      @content;
+    }
+  } @else {
+    @warn "Dispositivo no reconocido: #{$device}";
+  }
+}
 // crear caja
-@mixin box() {
-  width: 100%;
+@mixin box($w: 100%, $h: auto, $p: 0.1rem, $bg-clr: none) {
+  width: $w;
+  height: $h;
+  padding: $p;
   margin: 0 auto;
+  background-color: $bg-clr;
+}
+@mixin box-hiden() {
+  overflow: hidden; /* oculta lo que se sale */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 @mixin row($gap: v.$spacing-md, $align: center, $jc: space-between) {
   display: flex;
@@ -14,24 +46,39 @@
 // ======================================================
 // CENTER BOX — centra una caja en pantalla o dentro de su contenedor
 // ======================================================
-@mixin center-box($direction: both) {
+@mixin center-box($d: column) {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  // si quieres centrar solo en una dirección
-  @if $direction == horizontal {
-    align-items: normal;
-  } @else if $direction == vertical {
-    justify-content: normal;
-  }
+  flex-direction: column;
 }
 // ======================================================
 // TEXTOS — Jerarquía base de navegación o títulos
 // ======================================================
-@mixin text-primary($fs: v.$font-size-lg, $fw: v.$font-weight-lg) {
+@mixin text-primary(
+  $clr: bng.$color-text-primary,
+  $fs: v.$font-size-lg,
+  $fw: v.$font-weight-lg
+) {
   font-family: v.$font-family;
-  color: bng.$bng-text-primary;
+  text-align: center;
+  color: $clr;
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@mixin text-secondary(
+  $clr: bng.$color-text-secondary,
+  $fs: v.$font-size-sm,
+  $fw: v.$font-weight-sm
+) {
+  font-family: v.$font-family;
+  text-align: center;
+  color: $clr;
   font-size: $fs;
   font-weight: $fw;
   line-height: 1.4;
@@ -53,24 +100,16 @@
   border: none;
   outline: none;
   -webkit-tap-highlight-color: transparent;
+  //
+  //
 
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px bng.$bng-focus-ring;
+    box-shadow: 0 0 0 3px red; //bng.$bng-focus-ring;
     border-radius: v.$border-radius-sm;
   }
 }
-@mixin text-secondary($fs: v.$font-size-sm, $fw: v.$font-weight-sm) {
-  font-family: v.$font-family;
-  color: bng.$bng-text-primary;
-  font-size: $fs;
-  font-weight: $fw;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
 @mixin border-radius($cl: none, $brs: v.$border-radius-sm) {
   border: 1px solid $cl;
   border-radius: $brs;
