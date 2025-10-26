@@ -1,0 +1,111 @@
+@use "../../../../abogados/token.abogados" as v;
+@use "../../../../styles/mixin" as m;
+@mixin flex-container($ai: center, $jc: space-between) {
+  display: flex;
+  align-items: $ai;
+  justify-content: $jc;
+  gap: 2rem;
+}
+@mixin fix-box($t: 0px, $l: 0px, $z: 100) {
+  position: fixed;
+  top: $t;
+  left: $l;
+  z-index: $z;
+}
+// =======================================================================
+// 🎨 Mixin: Glassmorphism Background (cristal oscuro con acento dorado)
+// =======================================================================
+@mixin glass-bg($opacity: 0.15, $blur: 10px) {
+  background-color: rgba(v.$color-bg-header, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(v.$color-white, 0.1);
+  border-radius: 0.8rem;
+}
+
+.header {
+  @include fix-box();
+  background-color: v.$color-bg-header;
+  width: 100%;
+  padding: 1rem;
+}
+.header_container {
+  width: 100%;
+  @include flex-container();
+  //   background-color: yellow;
+}
+.header_container_title {
+  width: 20%;
+  @include flex-container($jc: flex-start);
+  @include m.text-primary();
+
+  //   background-color: wheat;
+}
+.header_container_nav {
+  width: 60%;
+  @include flex-container();
+  //   background-color: aqua;
+}
+.header_container_nav_mobil {
+  //////
+  @include fix-box();
+  @include glass-bg();
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  @include flex-container($jc: center);
+  flex-direction: column;
+  padding-bottom: 4rem;
+}
+.header_container_nav__item,
+.header_container_nav__item_mobil,
+.isMenuOpen {
+  @include m.link-reset();
+  @include m.text-secondary();
+}
+.header_container_nav__item_mobil,
+.isMenuOpen {
+  width: 80%;
+  padding: 2rem;
+  background-color: v.$color-bg-gradient;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  white-space: nowrap; // evita saltos de línea
+}
+.isMenuOpen {
+  width: 80%;
+}
+.header_container_btn {
+}
+.header_container_btn_container {
+  @include flex-container();
+}
+.header_container_btn_mobile,
+.header_container_btn,
+.menuButton {
+  @include m.text-secondary();
+  color: v.$color-black;
+  display: inline-flex; // 👈 se adapta al tamaño del texto
+  align-items: center; // centra el texto verticalmente
+  justify-content: center; // centra el texto horizontalmente si tiene padding
+  padding: 0.6rem 1rem;
+  background-color: v.$color-accent-gold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  white-space: nowrap; // evita saltos de línea
+}
+
+//// responsive
+@include m.responsive(phone) {
+  .header_container_title {
+    font-size: v.$font-size-sm;
+    width: 80%;
+  }
+}
+@include m.responsive(tablet) {
+  .header_container_title {
+    width: 80%;
+  }
+}
