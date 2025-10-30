@@ -1,0 +1,104 @@
+@use "../../../token.abogados" as v;
+
+.form {
+  width: 100%;
+  max-width: 70rem;
+  margin-inline: auto;
+  padding: v.$spacing-xl;
+  font-family: v.$font-family;
+  color: v.$color-text-primary;
+  background-color: v.$color-bg-primary;
+}
+
+/* ======== GRID de campos (nombre + email) ======== */
+.row {
+  display: grid;
+  gap: v.$spacing-lg;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  margin-bottom: v.$spacing-lg;
+}
+
+/* ======== Campos ======== */
+.field {
+  display: grid;
+  gap: v.$spacing-sm;
+}
+
+/* ======== Etiquetas ======== */
+.label {
+  font-size: v.$font-size-sm;
+  font-weight: v.$font-weight-md;
+  color: v.$color-text-primary;
+}
+
+/* ======== Inputs, Selects y Textareas ======== */
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: v.$spacing-sm v.$spacing-md;
+  font-size: v.$font-size-md;
+  color: v.$color-text-primary;
+  background-color: v.$color-bg-header;
+  border: 1px solid rgba(v.$color-text-secondary, 0.25);
+  border-radius: v.$border-radius-lg;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: v.$color-text-secondary;
+}
+
+/* ======== Estados de foco ======== */
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: v.$color-accent-gold;
+  box-shadow: 0 0 0 3px rgba(v.$color-accent-gold, 0.25);
+}
+
+/* ======== Textarea ======== */
+.textarea {
+  resize: vertical;
+  min-height: 12rem;
+}
+
+/* ======== Contenedor del botón ======== */
+.actions {
+  margin-top: v.$spacing-xl;
+  display: flex;
+  justify-content: center;
+}
+
+/* ======== Botón ======== */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$spacing-sm;
+
+  padding: v.$spacing-sm v.$spacing-xl;
+  font-size: v.$font-size-md;
+  font-weight: v.$font-weight-lg;
+  font-family: v.$font-family;
+
+  color: v.$color-bg-gradient;
+  background-color: v.$color-accent-gold;
+  border: 1px solid v.$color-bg-gradient;
+  border-radius: v.$border-radius-full;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: v.$color-accent-gold-dark;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(v.$color-accent-gold, 0.25);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(v.$color-accent-gold, 0.2);
+  }
+}

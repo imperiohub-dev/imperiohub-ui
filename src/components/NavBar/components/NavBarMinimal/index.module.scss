@@ -1,0 +1,79 @@
+@use "../../../../abogados/token.abogados" as v;
+@use "../../../../styles/mixin" as m;
+
+.header {
+  @include m.fix-box();
+  background-color: v.$color-bg-header;
+  width: 100%;
+  padding: 1rem;
+}
+.header_container {
+  width: 100%;
+  @include m.flex-container();
+  //   background-color: yellow;
+}
+.header_container_title {
+  width: 20%;
+  @include m.flex-container($jc: flex-start);
+  @include m.text-primary();
+
+  //   background-color: wheat;
+}
+.header_container_nav {
+  width: 60%;
+  @include m.flex-container();
+  //   background-color: aqua;
+}
+.header_container_nav_mobil {
+  //////
+  @include m.fix-box();
+  @include m.glass-bg();
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  @include m.flex-container($jc: center);
+  flex-direction: column;
+  padding-bottom: 4rem;
+}
+.header_container_nav__item,
+.header_container_nav__item_mobil,
+.isMenuOpen {
+  @include m.link-reset();
+  @include m.text-secondary();
+}
+.header_container_nav__item_mobil,
+.isMenuOpen {
+  width: 80%;
+  padding: 2rem;
+  background-color: v.$color-bg-gradient;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  white-space: nowrap; // evita saltos de línea
+}
+.isMenuOpen {
+  width: 80%;
+}
+.header_container_btn {
+}
+.header_container_btn_container {
+  @include m.flex-container();
+}
+.header_container_btn_mobile,
+.header_container_btn,
+.menuButton {
+  @include m.button-secondary();
+}
+
+//// responsive
+@include m.responsive(phone) {
+  .header_container_title {
+    font-size: v.$font-size-sm;
+    width: 80%;
+  }
+}
+@include m.responsive(tablet) {
+  .header_container_title {
+    width: 80%;
+  }
+}

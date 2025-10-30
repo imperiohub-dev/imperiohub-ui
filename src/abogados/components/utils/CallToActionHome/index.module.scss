@@ -1,0 +1,20 @@
+@use "../../../../styles/mixin" as m;
+@use "../../../../styles/mixins/boxStyles.mixin" as box;
+@use "../../../token.abogados" as v;
+@use "../../../../styles/variables" as gb;
+.section {
+  @include box.with-bg-foto();
+}
+.title {
+  @include m.text-primary();
+}
+.text {
+  @include m.text-secondary();
+}
+.cta {
+  @include m.box($h: 6rem, $p: 1rem, $bg-clr: v.$color-accent-gold);
+  @include m.center-box();
+  @include m.text-primary($clr: v.$color-bg-gradient);
+  border: 1px solid v.$color-bg-gradient;
+  border-radius: gb.$border-radius-xl;
+}

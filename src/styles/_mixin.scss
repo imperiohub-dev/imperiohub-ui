@@ -1,0 +1,170 @@
+@use "./variables" as v; // variables globales
+@use "./tokens/token.minimalista" as bng; // tu token Black&Gold
+
+// responsive
+@mixin responsive($device) {
+  @if $device == phone {
+    @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $device == tablet {
+    @media (min-width: 481px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $device == pc {
+    @media (min-width: 1025px) and (max-width: 1600px) {
+      @content;
+    }
+  } @else if $device == tv {
+    @media (min-width: 1601px) {
+      @content;
+    }
+  } @else {
+    @warn "Dispositivo no reconocido: #{$device}";
+  }
+}
+// crear caja
+@mixin box($w: 100%, $h: auto, $p: 0.1rem, $bg-clr: none) {
+  width: $w;
+  height: $h;
+  padding: $p;
+  margin: 0 auto;
+  background-color: $bg-clr;
+}
+@mixin box-hiden() {
+  overflow: hidden; /* oculta lo que se sale */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+@mixin row($gap: v.$spacing-md, $align: center, $jc: space-between) {
+  display: flex;
+  align-items: $align;
+  justify-content: $jc;
+  gap: $gap;
+}
+// ======================================================
+// CENTER BOX — centra una caja en pantalla o dentro de su contenedor
+// ======================================================
+@mixin center-box($d: column) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+// ======================================================
+// TEXTOS — Jerarquía base de navegación o títulos
+// ======================================================
+@mixin text-primary(
+  $clr: bng.$color-text-primary,
+  $fs: v.$font-size-lg,
+  $fw: v.$font-weight-lg
+) {
+  font-family: v.$font-family;
+  text-align: center;
+  color: $clr;
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@mixin text-secondary(
+  $clr: bng.$color-text-secondary,
+  $fs: v.$font-size-sm,
+  $fw: v.$font-weight-sm
+) {
+  font-family: v.$font-family;
+  text-align: center;
+  color: $clr;
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@mixin button-secondary() {
+  @include text-secondary();
+  color: bng.$color-black;
+  display: inline-flex; // 👈 se adapta al tamaño del texto
+  align-items: center; // centra el texto verticalmente
+  justify-content: center; // centra el texto horizontalmente si tiene padding
+  padding: 0.6rem 1rem;
+  background-color: bng.$color-accent-gold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  white-space: nowrap; // evita saltos de línea
+}
+// ======================================================
+// ENLACES — Reset tipográfico para usar dentro de la nav
+// (llámalo antes o dentro de cualquier link mixin)
+// ======================================================
+@mixin link-reset {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  user-select: none;
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  //
+  //
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px red; //bng.$bng-focus-ring;
+    border-radius: v.$border-radius-sm;
+  }
+}
+
+@mixin border-radius($cl: none, $brs: v.$border-radius-sm) {
+  border: 1px solid $cl;
+  border-radius: $brs;
+}
+
+@mixin input() {
+  padding: v.$spacing-xs;
+  @include text-secondary();
+  @include border-radius($brs: v.$border-radius-xl);
+}
+///
+@mixin flex-container($ai: center, $jc: space-between) {
+  display: flex;
+  align-items: $ai;
+  justify-content: $jc;
+  gap: 2rem;
+}
+@mixin grid-container($ai: center, $jc: space-between) {
+  display: grid;
+  gap: 3rem;
+
+  // 🎯 Distribución automática sin media queries
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  // Opcional: centrado y límites
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+}
+@mixin fix-box($t: 0px, $l: 0px, $z: 100) {
+  position: fixed;
+  top: $t;
+  left: $l;
+  z-index: $z;
+}
+// =======================================================================
+// 🎨 Mixin: Glassmorphism Background (cristal oscuro con acento dorado)
+// =======================================================================
+@mixin glass-bg($opacity: 0.15, $blur: 10px) {
+  background-color: rgba(bng.$color-bg-header, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(bng.$color-white, 0.1);
+  border-radius: 0.8rem;
+}

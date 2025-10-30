@@ -1,0 +1,14 @@
+@use "../../../styles/mixins/boxStyles.mixin" as box;
+@use "../../../styles/mixin" as m;
+@use "../../token.abogados" as v;
+.container {
+  margin-top: 3rem;
+  @include m.grid-container(); // background-color: red;
+}
+.container__item {
+  @include box.with-bg-color($bg-clr: v.$color-bg-gradient, $p: 1rem);
+}
+.container__item_title {
+  @include m.flex-container();
+  // background-color: yellow;
+}

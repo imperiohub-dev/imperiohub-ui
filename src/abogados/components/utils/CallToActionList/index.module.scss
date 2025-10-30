@@ -1,0 +1,38 @@
+@use "../../../../styles/mixin" as m;
+@use "../../../../styles/mixins/boxStyles.mixin" as box;
+@use "../../../token.abogados" as v;
+@use "../../../../styles/variables" as gb;
+.section {
+  @include box.with-bg-color($bg-clr: v.$color-bg-header, $p: 2rem);
+}
+.title {
+  @include m.text-primary();
+}
+.text {
+  @include m.text-secondary();
+}
+.section_ctas {
+  @include box.with-bg-color($h: auto, $p: 2rem, $bg-clr: none, $fd: row);
+
+  //  background-color: red;
+}
+.section_ctas_items {
+  @include box.with-bg-color(
+    $bg-clr: v.$color-bg-gradient,
+    $h: 25rem,
+    $p: 1rem,
+    $fd: block
+  );
+}
+.cta {
+  @include m.box($h: 6rem, $p: 1rem, $bg-clr: v.$color-accent-gold);
+  @include m.center-box();
+  @include m.text-primary($clr: v.$color-bg-gradient);
+  border: 1px solid v.$color-bg-gradient;
+  border-radius: gb.$border-radius-xl;
+}
+@include m.responsive(phone) {
+  .section_ctas {
+    flex-direction: column;
+  }
+}
