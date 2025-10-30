@@ -35,7 +35,7 @@ interface HtmlPropsTypeSegmented extends HtmlPropsType {
   headerDivDivButton2?: UI<"button">;
 }
 
-interface Links extends UI<"a"> {
+export interface Links extends UI<"a"> {
   navigate?: UINavigate;
   onClick?: () => void;
 }

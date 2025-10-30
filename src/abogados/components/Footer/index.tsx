@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-
+import { type Links } from "../../../models/nav/nav.model";
 /**
  * Footer
  * Props:
@@ -9,41 +9,63 @@ import styles from "./index.module.scss";
  * - social: { title: string, items: Array<{ name: "twitter"|"linkedin"|"facebook", href: string }> }
  * - legal: { rights: string, disclaimer?: string }
  */
+/* ========= Tipos de subcomponentes ========= */
+
+interface BrandInfo {
+  logo: string; // ⚖️ o ruta de imagen
+  name: string; // "Justicia Digital"
+  tagline: string; // "Defendiendo tus derechos..."
+}
+
+interface NavLink extends Links {
+  label: string;
+  href: string;
+}
+
+interface NavSection {
+  title: string; // "Navegación"
+  links: NavLink[]; // [{ label, href }]
+}
+
+interface ContactInfo {
+  title: string; // "Contacto"
+  email: string;
+  phone: string;
+  address: string;
+}
+
+interface SocialItem {
+  name: "twitter" | "linkedin" | "facebook" | string; // puedes ampliar más redes
+  href: string;
+}
+
+interface SocialSection {
+  title: string; // "Síguenos"
+  items: SocialItem[];
+}
+
+interface LegalInfo {
+  rights: string; // derechos reservados
+  disclaimer: string; // aviso legal
+}
+
+/* ========= Tipo principal ========= */
+
+interface FooterProps {
+  brand: BrandInfo;
+  nav: NavSection;
+  contact: ContactInfo;
+  social: SocialSection;
+  legal: LegalInfo;
+}
+
 export default function Footer({
-  brand = {
-    logo: "⚖️",
-    name: "Justicia Digital",
-    tagline: "Defendiendo tus derechos con experiencia y dedicación.",
-  },
-  nav = {
-    title: "Navegación",
-    links: [
-      { label: "Inicio", href: "#" },
-      { label: "Servicios", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Agendar Cita", href: "#" },
-    ],
-  },
-  contact = {
-    title: "Contacto",
-    email: "info@justiciadigital.com",
-    phone: "+1 (123) 456-7890",
-    address: "123 Calle Falsa, Ciudad, País",
-  },
-  social = {
-    title: "Síguenos",
-    items: [
-      { name: "twitter", href: "#" },
-      { name: "linkedin", href: "#" },
-      { name: "facebook", href: "#" },
-    ],
-  },
-  legal = {
-    rights: "© 2025 Justicia Digital. Todos los derechos reservados.",
-    disclaimer:
-      "La información en este sitio web es solo para fines informativos y no constituye asesoramiento legal.",
-  },
-}) {
+  brand,
+  nav,
+  contact,
+  social,
+  legal,
+}: FooterProps) {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>

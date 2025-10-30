@@ -24,6 +24,9 @@
     @include m.link-reset();
     @include m.text-secondary($clr: tk_minimalista.$color-accent-gold);
   }
+  button {
+    @include m.button-secondary();
+  }
 }
 
 @mixin with-bg-foto() {

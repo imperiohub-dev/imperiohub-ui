@@ -12,8 +12,9 @@
   @include m.text-secondary();
 }
 .section_ctas {
-  @include box.with-bg-color($h: 30rem, $p: 2rem, $bg-clr: none, $fd: row);
-  //   background-color: red;
+  @include box.with-bg-color($h: auto, $p: 2rem, $bg-clr: none, $fd: row);
+
+  //  background-color: red;
 }
 .section_ctas_items {
   @include box.with-bg-color(
@@ -29,4 +30,9 @@
   @include m.text-primary($clr: v.$color-bg-gradient);
   border: 1px solid v.$color-bg-gradient;
   border-radius: gb.$border-radius-xl;
+}
+@include m.responsive(phone) {
+  .section_ctas {
+    flex-direction: column;
+  }
 }

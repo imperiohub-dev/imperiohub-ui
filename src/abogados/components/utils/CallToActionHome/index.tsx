@@ -1,20 +1,21 @@
 import styles from "./index.module.scss";
+import type { UI, UINavigate } from "../../../../models/global.model";
+interface CallToActionHomeProp {
+  title: string;
+  text: string;
+  img: UI<"img">;
+  cta: {
+    title: string;
+    navigate: UINavigate;
+    cb: () => void;
+  };
+}
 export default function CallToActionHome({
-  title = "Defensa legal Estrategia Digital",
-  text = `Combinamos experiencia legal, tradicional con un enfoque innovador para
-        proteger tus intereses en el complejo mundo actual.`,
-  img = {
-    //img atribute
-    src: "/legal.png",
-    alt: "",
-  },
-  cta = {
-    // button atribute
-    title: "Agendar Consulta Gratuita",
-    navigate: "/agendar.cita",
-    cb: () => {},
-  },
-}) {
+  title,
+  text,
+  img,
+  cta,
+}: CallToActionHomeProp) {
   return (
     <section
       className={styles.section}

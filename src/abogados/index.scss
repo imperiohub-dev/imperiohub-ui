@@ -17,11 +17,9 @@ html {
 body {
   @include m.box($p: 1rem);
   @include m.center-box();
-  padding-top: 2rem;
-  padding-bottom: 6rem;
-  //
-  // overflow-x: hidden;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  overflow-x: hidden;
   // overflow-y: hidden;
-  //
   background-color: v.$color-bg-primary;
 }

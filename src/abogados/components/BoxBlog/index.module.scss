@@ -1,0 +1,14 @@
+@use "../../../styles/mixins/boxStyles.mixin" as box;
+@use "../../../styles/mixin" as m;
+@use "../../token.abogados" as v;
+.container {
+  margin-top: 2rem;
+  // background-color: red;
+}
+.blog {
+  @include box.with-bg-color($bg-clr: v.$color-bg-gradient, $p: 2rem);
+  margin-top: 2rem;
+  .autor {
+    color: v.$color-accent-gold;
+  }
+}

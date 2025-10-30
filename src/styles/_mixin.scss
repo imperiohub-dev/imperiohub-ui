@@ -87,6 +87,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@mixin button-secondary() {
+  @include text-secondary();
+  color: bng.$color-black;
+  display: inline-flex; // 👈 se adapta al tamaño del texto
+  align-items: center; // centra el texto verticalmente
+  justify-content: center; // centra el texto horizontalmente si tiene padding
+  padding: 0.6rem 1rem;
+  background-color: bng.$color-accent-gold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  white-space: nowrap; // evita saltos de línea
+}
 // ======================================================
 // ENLACES — Reset tipográfico para usar dentro de la nav
 // (llámalo antes o dentro de cualquier link mixin)
@@ -119,4 +132,39 @@
   padding: v.$spacing-xs;
   @include text-secondary();
   @include border-radius($brs: v.$border-radius-xl);
+}
+///
+@mixin flex-container($ai: center, $jc: space-between) {
+  display: flex;
+  align-items: $ai;
+  justify-content: $jc;
+  gap: 2rem;
+}
+@mixin grid-container($ai: center, $jc: space-between) {
+  display: grid;
+  gap: 3rem;
+
+  // 🎯 Distribución automática sin media queries
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  // Opcional: centrado y límites
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+}
+@mixin fix-box($t: 0px, $l: 0px, $z: 100) {
+  position: fixed;
+  top: $t;
+  left: $l;
+  z-index: $z;
+}
+// =======================================================================
+// 🎨 Mixin: Glassmorphism Background (cristal oscuro con acento dorado)
+// =======================================================================
+@mixin glass-bg($opacity: 0.15, $blur: 10px) {
+  background-color: rgba(bng.$color-bg-header, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(bng.$color-white, 0.1);
+  border-radius: 0.8rem;
 }
