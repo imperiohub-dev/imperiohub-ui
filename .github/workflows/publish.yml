@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
+      contents: write  # Cambiado de read a write para crear releases
       id-token: write  # Necesario para provenance de npm
 
     steps:
