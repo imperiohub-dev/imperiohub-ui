@@ -1,0 +1,25 @@
+@use "../styles/base/normalice";
+@use "./token.saasPro" as v;
+@use "../styles/mixin" as m;
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+body {
+  @include m.box($p: 1rem);
+  @include m.center-box();
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  overflow-x: hidden;
+  // overflow-y: hidden;
+  background-color: v.$color-bg-primary;
+}

@@ -1,0 +1,25 @@
+@use "../../token.saasPro" as v;
+@use "../../../styles//mixin" as m;
+@use "../../../styles/mixins/boxStyles.mixin" as box;
+.container {
+  @include m.box();
+}
+.title {
+  @include m.box();
+  @include m.text-primary();
+}
+.text {
+  @include m.box();
+  @include m.text-secondary();
+}
+.button__container {
+  @include m.box($p: 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-direction: column;
+}
+.button {
+  @include m.button-secondary();
+}
