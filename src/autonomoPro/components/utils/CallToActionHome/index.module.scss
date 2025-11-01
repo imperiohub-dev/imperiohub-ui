@@ -1,6 +1,6 @@
 @use "../../../../styles/mixin" as m;
 @use "../../../../styles/mixins/boxStyles.mixin" as box;
-@use "../../../token.abogados" as v;
+@use "../../../token.autonomoPro" as v;
 @use "../../../../styles/variables" as gb;
 .section {
   @include box.with-bg-foto();

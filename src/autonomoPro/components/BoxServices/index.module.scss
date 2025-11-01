@@ -1,6 +1,6 @@
 @use "../../../styles/mixins/boxStyles.mixin" as box;
 @use "../../../styles/mixin" as m;
-@use "../../token.abogados" as v;
+@use "../../token.autonomoPro" as v;
 .container {
   margin-top: 3rem;
   @include m.grid-container(); // background-color: red;
