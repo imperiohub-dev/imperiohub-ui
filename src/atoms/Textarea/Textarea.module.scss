@@ -1,0 +1,80 @@
+/**
+ * Textarea Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.textarea {
+  @include textarea-base;
+
+  // Sizes
+  &--sm {
+    @include textarea-size-sm;
+  }
+
+  &--md {
+    @include textarea-size-md;
+  }
+
+  &--lg {
+    @include textarea-size-lg;
+  }
+
+  // States
+  &--error {
+    @include input-state-error;
+  }
+
+  &--success {
+    @include input-state-success;
+  }
+
+  // Resize options
+  &--no-resize {
+    @include textarea-no-resize;
+  }
+
+  &--auto-resize {
+    @include textarea-auto-resize;
+  }
+}
+
+.textarea__label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+
+  &--required::after {
+    content: ' *';
+    color: var(--color-error);
+  }
+}
+
+.textarea__helper {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.textarea__error {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
+}
+
+.textarea__counter {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-align: right;
+
+  &--limit-reached {
+    color: var(--color-error);
+  }
+}

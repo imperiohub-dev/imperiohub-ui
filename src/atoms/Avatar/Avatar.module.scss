@@ -1,0 +1,12 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.avatar {
+  @include avatar-base;
+
+  &--sm { @include avatar-size-sm; }
+  &--md { @include avatar-size-md; }
+  &--lg { @include avatar-size-lg; }
+  &--xl { @include avatar-size-xl; }
+  &--2xl { @include avatar-size-2xl; }
+}

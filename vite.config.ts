@@ -21,16 +21,33 @@ export default defineConfig({
       formats: ["es", "cjs"],
     },
     rollupOptions: {
-      // 👇 IMPORTANTE: React no debe empaquetarse en la librería
-      external: ["react", "react-dom"],
+      // Externalize dependencies that shouldn't be bundled
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "lucide-react",
+        "framer-motion",
+        "react-router-dom"
+      ],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+          "lucide-react": "LucideReact",
+          "framer-motion": "FramerMotion",
+          "react-router-dom": "ReactRouterDOM",
+        },
+        // Preserve CSS modules
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.names && assetInfo.names[0] === 'style.css') return 'index.css';
+          return assetInfo.names?.[0] || 'assets/[name]-[hash][extname]';
         },
       },
     },
     sourcemap: true,
-    cssCodeSplit: true,
+    cssCodeSplit: false, // Bundle all CSS into one file
+    minify: 'esbuild',
+    target: 'es2015',
   },
 });

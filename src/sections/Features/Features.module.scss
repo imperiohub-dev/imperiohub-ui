@@ -1,0 +1,31 @@
+@use '../../styles/mixins' as *;
+
+.features {
+  @include features-section;
+}
+
+.features__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--spacing-3xl);
+}
+
+.features__grid {
+  @include features-grid;
+}
+
+.feature__item {
+  @include feature-item;
+}
+
+.feature__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary-50);
+  border-radius: var(--radius-lg);
+  color: var(--color-primary);
+}

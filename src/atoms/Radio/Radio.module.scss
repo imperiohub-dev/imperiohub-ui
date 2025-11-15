@@ -1,0 +1,71 @@
+/**
+ * Radio Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.radio {
+  @include radio-wrapper;
+}
+
+.radio__input {
+  @include radio-input;
+
+  // Focus state
+  &:focus-visible + .radio__button {
+    @include radio-focus;
+  }
+
+  // Checked state
+  &:checked + .radio__button {
+    @include radio-checked;
+  }
+
+  // Error state
+  &[aria-invalid='true'] + .radio__button {
+    @include radio-error;
+  }
+}
+
+.radio__button {
+  @include radio-button;
+
+  // Sizes
+  &--sm {
+    @include radio-size-sm;
+  }
+
+  &--md {
+    @include radio-size-md;
+  }
+
+  &--lg {
+    @include radio-size-lg;
+  }
+}
+
+.radio:hover:not(:has(input:disabled)) .radio__button {
+  @include radio-hover;
+}
+
+.radio__label-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.radio__label {
+  @include radio-label;
+}
+
+.radio__description {
+  @include radio-description;
+}
+
+.radio__error {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
+}

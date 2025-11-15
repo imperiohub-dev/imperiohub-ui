@@ -1,0 +1,21 @@
+@use '../../styles/mixins' as *;
+
+.contact {
+  padding: var(--spacing-4xl) 0;
+}
+
+.contact__container {
+  @include container;
+  max-width: 600px;
+}
+
+.contact__header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}

@@ -1,0 +1,49 @@
+/**
+ * Textarea Mixins
+ *
+ * Reusable mixins for textarea component
+ */
+
+@use '../../variables' as *;
+
+// Base textarea styles (extends input-base)
+@mixin textarea-base {
+  @include input-base;
+  resize: vertical;
+  min-height: 100px;
+  line-height: var(--line-height-relaxed);
+  font-family: var(--font-body);
+}
+
+// Textarea sizes
+@mixin textarea-size-sm {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+  min-height: 80px;
+}
+
+@mixin textarea-size-md {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-md);
+  min-height: 120px;
+}
+
+@mixin textarea-size-lg {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-md);
+  min-height: 160px;
+}
+
+// Auto-resize textarea
+@mixin textarea-auto-resize {
+  resize: none;
+  overflow: hidden;
+}
+
+// No resize
+@mixin textarea-no-resize {
+  resize: none;
+}

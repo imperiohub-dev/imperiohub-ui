@@ -1,0 +1,47 @@
+/**
+ * Select Mixins
+ *
+ * Reusable mixins for select dropdown component
+ */
+
+@use '../../variables' as *;
+@use './input' as *;
+
+// Base select styles (inherits from input-base)
+@mixin select-base {
+  @include input-base;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23111827' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-md) center;
+  padding-right: calc(var(--spacing-md) * 2 + 12px);
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// Select sizes (inherit from input sizes but with adjusted padding)
+@mixin select-size-sm {
+  @include input-size-sm;
+  padding-right: calc(var(--spacing-sm) * 2 + 12px);
+  background-position: right var(--spacing-sm) center;
+}
+
+@mixin select-size-md {
+  @include input-size-md;
+  padding-right: calc(var(--spacing-md) * 2 + 12px);
+  background-position: right var(--spacing-md) center;
+}
+
+@mixin select-size-lg {
+  @include input-size-lg;
+  padding-right: calc(var(--spacing-lg) * 2 + 12px);
+  background-position: right var(--spacing-lg) center;
+}
+
+// Select with icon (adjust padding for both icon and arrow)
+@mixin select-with-icon {
+  padding-left: calc(var(--spacing-md) * 2 + 20px);
+}

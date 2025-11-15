@@ -1,0 +1,21 @@
+/**
+ * Divider Mixins
+ */
+
+@use '../../variables' as *;
+
+@mixin divider-horizontal {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text-disabled);
+  border: none;
+  margin: var(--spacing-md) 0;
+}
+
+@mixin divider-vertical {
+  width: 1px;
+  height: 100%;
+  background-color: var(--color-text-disabled);
+  border: none;
+  margin: 0 var(--spacing-md);
+}

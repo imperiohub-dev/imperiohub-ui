@@ -1,0 +1,21 @@
+/**
+ * Link Mixins
+ */
+
+@use '../../variables' as *;
+
+@mixin link-base {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-primary-600);
+  }
+}
+
+@mixin link-underline {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

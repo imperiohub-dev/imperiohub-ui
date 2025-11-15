@@ -1,0 +1,40 @@
+/**
+ * Card Molecule Mixins
+ */
+
+@use '../../variables' as *;
+
+@mixin card-base {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-text-disabled);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+@mixin card-hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+@mixin card-clickable {
+  cursor: pointer;
+  &:hover {
+    @include card-hover;
+  }
+}
+
+@mixin card-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-surface);
+}
+
+@mixin card-body {
+  padding: var(--spacing-lg);
+}
+
+@mixin card-footer {
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--color-surface);
+  background-color: var(--color-surface);
+}

@@ -1,0 +1,61 @@
+/**
+ * Button Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.button {
+  @include button-base;
+
+  // Sizes
+  &--sm {
+    @include button-size-sm;
+  }
+
+  &--md {
+    @include button-size-md;
+  }
+
+  &--lg {
+    @include button-size-lg;
+  }
+
+  // Variants
+  &--primary {
+    @include button-variant-primary;
+  }
+
+  &--secondary {
+    @include button-variant-secondary;
+  }
+
+  &--outline {
+    @include button-variant-outline;
+  }
+
+  &--ghost {
+    @include button-variant-ghost;
+  }
+
+  &--danger {
+    @include button-variant-danger;
+  }
+
+  &--success {
+    @include button-variant-success;
+  }
+
+  // States
+  &--loading {
+    @include button-loading;
+  }
+
+  &--full-width {
+    @include button-full-width;
+  }
+
+  &--icon-only {
+    @include button-icon-only;
+  }
+}

@@ -1,0 +1,39 @@
+/**
+ * Color Variables
+ *
+ * Default color palette - can be overridden via CSS custom properties
+ */
+
+:root {
+  // Primary colors
+  --color-primary: #6366f1;
+  --color-secondary: #8b5cf6;
+  --color-accent: #ec4899;
+
+  // Neutral colors
+  --color-background: #ffffff;
+  --color-surface: #f9fafb;
+
+  // Text colors
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-disabled: #d1d5db;
+
+  // Status colors
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-success: #10b981;
+  --color-info: #3b82f6;
+
+  // Shades (generated from primary)
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+}

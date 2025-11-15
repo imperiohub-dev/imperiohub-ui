@@ -1,0 +1,153 @@
+/**
+ * Checkbox Mixins
+ *
+ * Reusable mixins for checkbox component
+ */
+
+@use '../../variables' as *;
+
+// Base checkbox wrapper
+@mixin checkbox-wrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  &:has(input:disabled) {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// Hidden native checkbox
+@mixin checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+// Custom checkbox box
+@mixin checkbox-box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--color-text-disabled);
+  background-color: var(--color-background);
+  transition: all 0.2s ease;
+
+  // Checkmark
+  &::after {
+    content: '';
+    position: absolute;
+    display: none;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+}
+
+// Checkbox sizes
+@mixin checkbox-size-sm {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-sm);
+
+  &::after {
+    width: 4px;
+    height: 8px;
+    border-width: 0 1.5px 1.5px 0;
+  }
+}
+
+@mixin checkbox-size-md {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-sm);
+
+  &::after {
+    width: 5px;
+    height: 10px;
+  }
+}
+
+@mixin checkbox-size-lg {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-md);
+
+  &::after {
+    width: 6px;
+    height: 12px;
+  }
+}
+
+// Checked state
+@mixin checkbox-checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+
+  &::after {
+    display: block;
+  }
+}
+
+// Hover state
+@mixin checkbox-hover {
+  border-color: var(--color-primary);
+}
+
+// Focus state
+@mixin checkbox-focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+// Error state
+@mixin checkbox-error {
+  border-color: var(--color-error);
+
+  &:checked {
+    background-color: var(--color-error);
+    border-color: var(--color-error);
+  }
+}
+
+// Indeterminate state
+@mixin checkbox-indeterminate {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+
+  &::after {
+    display: block;
+    width: 60%;
+    height: 2px;
+    border: none;
+    background-color: white;
+    transform: none;
+  }
+}
+
+// Label text
+@mixin checkbox-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-normal);
+  padding-top: 1px;
+}
+
+// Description text
+@mixin checkbox-description {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-xs);
+  line-height: var(--line-height-normal);
+}

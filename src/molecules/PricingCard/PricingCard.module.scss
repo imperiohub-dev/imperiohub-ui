@@ -1,0 +1,33 @@
+@use '../../styles/mixins' as *;
+
+.pricing-card {
+  &--featured {
+    @include pricing-card-featured;
+  }
+}
+
+.pricing-card__badge {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+}
+
+.pricing-card__price {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: var(--spacing-md) 0;
+}
+
+.pricing-card__features {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-lg) 0;
+
+  li {
+    padding: var(--spacing-sm) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+}

@@ -1,7 +1,20 @@
 {
   "name": "@imperiohub/ui",
-  "version": "0.1.5",
-  "description": "Librería UI de ImperioHub con componentes reutilizables y temas personalizables.",
+  "version": "0.2.0",
+  "description": "Professional React component library for building landing pages rapidly with AI-powered content generation. Perfect for autonomous professionals (lawyers, doctors, consultants).",
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "landing-page",
+    "builder",
+    "ai",
+    "typescript",
+    "scss",
+    "autonomous-professionals",
+    "imperiohub"
+  ],
+  "author": "ImperioHub <dev@imperiohub.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -21,7 +34,7 @@
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js"
     },
-    "./styles.css": "./dist/index.css",
+    "./styles.css": "./dist/ui.css",
     "./autonomoPro": {
       "types": "./dist/types/autonomoPro/index.d.ts",
       "import": "./dist/index.es.js",
@@ -37,8 +50,11 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "prepublishOnly": "npm run build"
+    "build": "tsc && vite build",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:vite": "vite build",
+    "prepublishOnly": "npm run build",
+    "postpublish": "echo '✅ Package published successfully!'"
   },
   "peerDependencies": {
     "react": ">=18",

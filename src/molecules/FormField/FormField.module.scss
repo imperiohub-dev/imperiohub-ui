@@ -1,0 +1,14 @@
+/**
+ * FormField Molecule Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.form-field {
+  @include form-field-wrapper;
+
+  &--inline {
+    @include form-field-inline;
+  }
+}

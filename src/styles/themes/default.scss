@@ -1,0 +1,15 @@
+/**
+ * Default Theme
+ *
+ * The default theme configuration
+ */
+
+@use '../variables' as *;
+
+.theme-default {
+  // Colors are already defined in variables/_colors.scss
+  // This theme file can be used to override specific values
+
+  // Example: if you want a different primary color for this theme
+  // --color-primary: #5f3dc4;
+}

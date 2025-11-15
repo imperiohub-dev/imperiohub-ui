@@ -1,0 +1,62 @@
+/**
+ * Hero Section Mixins
+ */
+
+@use '../../variables' as *;
+@use '../responsive' as *;
+
+@mixin hero-section {
+  padding: var(--spacing-4xl) 0;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+
+  @include lg {
+    min-height: 700px;
+  }
+}
+
+@mixin hero-container {
+  @include container;
+  display: grid;
+  gap: var(--spacing-3xl);
+  align-items: center;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@mixin hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  max-width: 600px;
+
+  @include max-md {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+@mixin hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+  @include max-md {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@mixin hero-cta-group {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+
+  @include max-md {
+    justify-content: center;
+  }
+}

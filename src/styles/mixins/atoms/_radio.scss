@@ -1,0 +1,112 @@
+/**
+ * Radio Mixins
+ *
+ * Reusable mixins for radio component
+ */
+
+@use '../../variables' as *;
+@use './checkbox' as *;
+
+// Base radio wrapper (inherits from checkbox wrapper)
+@mixin radio-wrapper {
+  @include checkbox-wrapper;
+}
+
+// Hidden native radio
+@mixin radio-input {
+  @include checkbox-input;
+}
+
+// Custom radio button
+@mixin radio-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--color-text-disabled);
+  background-color: var(--color-background);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+
+  // Inner dot
+  &::after {
+    content: '';
+    position: absolute;
+    display: none;
+    border-radius: 50%;
+    background-color: white;
+  }
+}
+
+// Radio sizes
+@mixin radio-size-sm {
+  width: 16px;
+  height: 16px;
+
+  &::after {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@mixin radio-size-md {
+  width: 20px;
+  height: 20px;
+
+  &::after {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@mixin radio-size-lg {
+  width: 24px;
+  height: 24px;
+
+  &::after {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+// Checked state
+@mixin radio-checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+
+  &::after {
+    display: block;
+  }
+}
+
+// Hover state
+@mixin radio-hover {
+  border-color: var(--color-primary);
+}
+
+// Focus state
+@mixin radio-focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+// Error state
+@mixin radio-error {
+  border-color: var(--color-error);
+
+  &:checked {
+    background-color: var(--color-error);
+    border-color: var(--color-error);
+  }
+}
+
+// Label text (same as checkbox)
+@mixin radio-label {
+  @include checkbox-label;
+}
+
+// Description text (same as checkbox)
+@mixin radio-description {
+  @include checkbox-description;
+}

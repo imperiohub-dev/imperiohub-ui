@@ -1,0 +1,18 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.badge {
+  @include badge-base;
+
+  &--sm { @include badge-size-sm; }
+  &--md { @include badge-size-md; }
+  &--lg { @include badge-size-lg; }
+
+  &--primary { @include badge-variant-primary; }
+  &--secondary { @include badge-variant-secondary; }
+  &--success { @include badge-variant-success; }
+  &--error { @include badge-variant-error; }
+  &--warning { @include badge-variant-warning; }
+  &--info { @include badge-variant-info; }
+  &--neutral { @include badge-variant-neutral; }
+}

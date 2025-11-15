@@ -1,0 +1,11 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.spinner {
+  @include spinner-base;
+
+  &--sm { @include spinner-size-sm; }
+  &--md { @include spinner-size-md; }
+  &--lg { @include spinner-size-lg; }
+  &--xl { @include spinner-size-xl; }
+}

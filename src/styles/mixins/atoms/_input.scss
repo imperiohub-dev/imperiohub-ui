@@ -1,0 +1,118 @@
+/**
+ * Input Mixins
+ *
+ * Reusable mixins for input component variants and states
+ */
+
+@use '../../variables' as *;
+
+// Base input styles
+@mixin input-base {
+  width: 100%;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  border: 2px solid var(--color-text-disabled);
+  transition: all 0.2s ease;
+  outline: none;
+
+  &::placeholder {
+    color: var(--color-text-secondary);
+  }
+
+  &:hover:not(:disabled):not(:focus) {
+    border-color: var(--color-text-secondary);
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+
+  &:disabled {
+    background-color: var(--color-surface);
+    color: var(--color-text-disabled);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+// Input sizes
+@mixin input-size-sm {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+  min-height: 32px;
+}
+
+@mixin input-size-md {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-md);
+  min-height: 40px;
+}
+
+@mixin input-size-lg {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-md);
+  min-height: 48px;
+}
+
+// Input state: Error
+@mixin input-state-error {
+  border-color: var(--color-error);
+
+  &:focus {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  }
+}
+
+// Input state: Success
+@mixin input-state-success {
+  border-color: var(--color-success);
+
+  &:focus {
+    border-color: var(--color-success);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  }
+}
+
+// Input with icon
+@mixin input-with-icon($position: 'left') {
+  @if $position == 'left' {
+    padding-left: calc(var(--spacing-md) * 2 + 20px);
+  } @else {
+    padding-right: calc(var(--spacing-md) * 2 + 20px);
+  }
+}
+
+// Input wrapper with icon
+@mixin input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+@mixin input-icon($position: 'left') {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @if $position == 'left' {
+    left: var(--spacing-md);
+  } @else {
+    right: var(--spacing-md);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,211 @@
+@use '../styles/variables/index' as *;
+@use '../styles/mixins/responsive' as *;
+
+.landingPage {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// ============================================================================
+// Navigation
+// ============================================================================
+
+.navigation {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navigationInner {
+  max-width: var(--breakpoint-xl);
+  margin: 0 auto;
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+
+  @include md {
+    padding: var(--spacing-lg) var(--spacing-2xl);
+  }
+}
+
+.logo {
+  flex-shrink: 0;
+
+  img {
+    height: 40px;
+    width: auto;
+
+    @include md {
+      height: 48px;
+    }
+  }
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+
+  @include md {
+    gap: var(--spacing-xl);
+  }
+}
+
+.navLink {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: color 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+
+  @include md {
+    font-size: var(--font-size-base);
+  }
+}
+
+// ============================================================================
+// Main Content
+// ============================================================================
+
+.main {
+  flex: 1;
+}
+
+// ============================================================================
+// Footer
+// ============================================================================
+
+.footer {
+  background-color: var(--color-background-dark);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.footerInner {
+  max-width: var(--breakpoint-xl);
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+
+  @include md {
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+    gap: var(--spacing-xl);
+  }
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+
+  @include md {
+    gap: var(--spacing-lg);
+  }
+}
+
+.footerLink {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.socialLink {
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.copyright {
+  text-align: center;
+}
+
+// ============================================================================
+// Variants
+// ============================================================================
+
+// Full variant (default)
+.full {
+  // Uses all default styles
+}
+
+// Minimal variant - simpler navigation and footer
+.minimal {
+  .navigation {
+    box-shadow: none;
+  }
+
+  .navigationInner {
+    padding: var(--spacing-sm) var(--spacing-lg);
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  .footerInner {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+}
+
+// Service-focused variant - emphasizes navigation
+.serviceFocused {
+  .navigation {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    border-bottom: none;
+  }
+
+  .navLink {
+    color: white;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  .footer {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  }
+
+  .footerLink,
+  .socialLink {
+    color: rgba(255, 255, 255, 0.8);
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .copyright {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

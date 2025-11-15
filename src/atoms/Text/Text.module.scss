@@ -1,0 +1,132 @@
+/**
+ * Text Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.text {
+  @include text-base;
+
+  // Variants (element types)
+  &--h1 {
+    @include heading-h1;
+  }
+
+  &--h2 {
+    @include heading-h2;
+  }
+
+  &--h3 {
+    @include heading-h3;
+  }
+
+  &--h4 {
+    @include heading-h4;
+  }
+
+  &--h5 {
+    @include heading-h5;
+  }
+
+  &--h6 {
+    @include heading-h6;
+  }
+
+  &--body-lg {
+    @include text-body-lg;
+  }
+
+  &--body {
+    @include text-body;
+  }
+
+  &--body-sm {
+    @include text-body-sm;
+  }
+
+  &--caption {
+    @include text-caption;
+  }
+
+  &--label {
+    @include text-label;
+  }
+
+  &--overline {
+    @include text-overline;
+  }
+
+  // Alignment
+  &--left {
+    @include text-align-left;
+  }
+
+  &--center {
+    @include text-align-center;
+  }
+
+  &--right {
+    @include text-align-right;
+  }
+
+  // Weights
+  &--light {
+    @include text-weight-light;
+  }
+
+  &--normal {
+    @include text-weight-normal;
+  }
+
+  &--medium {
+    @include text-weight-medium;
+  }
+
+  &--semibold {
+    @include text-weight-semibold;
+  }
+
+  &--bold {
+    @include text-weight-bold;
+  }
+
+  // Colors
+  &--primary {
+    @include text-color-primary;
+  }
+
+  &--secondary {
+    @include text-color-secondary;
+  }
+
+  &--disabled {
+    @include text-color-disabled;
+  }
+
+  &--brand {
+    @include text-color-brand;
+  }
+
+  &--error {
+    @include text-color-error;
+  }
+
+  &--success {
+    @include text-color-success;
+  }
+
+  &--warning {
+    @include text-color-warning;
+  }
+
+  // Gradient
+  &--gradient {
+    @include text-gradient;
+  }
+
+  // Truncate
+  &--truncate {
+    @include truncate;
+  }
+}

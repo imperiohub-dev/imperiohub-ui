@@ -1,0 +1,84 @@
+/**
+ * Select Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.select-wrapper {
+  @include input-wrapper;
+}
+
+.select {
+  @include select-base;
+
+  // Sizes
+  &--sm {
+    @include select-size-sm;
+  }
+
+  &--md {
+    @include select-size-md;
+  }
+
+  &--lg {
+    @include select-size-lg;
+  }
+
+  // States
+  &--error {
+    @include input-state-error;
+  }
+
+  &--success {
+    @include input-state-success;
+  }
+
+  // With icon
+  &--with-icon {
+    @include select-with-icon;
+  }
+}
+
+.select__icon {
+  @include input-icon('left');
+
+  &--error {
+    color: var(--color-error);
+  }
+
+  &--success {
+    color: var(--color-success);
+  }
+}
+
+.select__label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+
+  &--required::after {
+    content: ' *';
+    color: var(--color-error);
+  }
+}
+
+.select__helper {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.select__error {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
+}
+
+.select__placeholder {
+  color: var(--color-text-secondary);
+}

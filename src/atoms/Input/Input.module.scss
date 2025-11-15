@@ -1,0 +1,90 @@
+/**
+ * Input Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.input-wrapper {
+  @include input-wrapper;
+}
+
+.input {
+  @include input-base;
+
+  // Sizes
+  &--sm {
+    @include input-size-sm;
+  }
+
+  &--md {
+    @include input-size-md;
+  }
+
+  &--lg {
+    @include input-size-lg;
+  }
+
+  // States
+  &--error {
+    @include input-state-error;
+  }
+
+  &--success {
+    @include input-state-success;
+  }
+
+  // With icons
+  &--with-icon-left {
+    @include input-with-icon('left');
+  }
+
+  &--with-icon-right {
+    @include input-with-icon('right');
+  }
+}
+
+.input__icon {
+  &--left {
+    @include input-icon('left');
+  }
+
+  &--right {
+    @include input-icon('right');
+  }
+
+  &--error {
+    color: var(--color-error);
+  }
+
+  &--success {
+    color: var(--color-success);
+  }
+}
+
+.input__label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+
+  &--required::after {
+    content: ' *';
+    color: var(--color-error);
+  }
+}
+
+.input__helper {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.input__error {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
+}

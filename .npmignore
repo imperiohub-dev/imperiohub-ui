@@ -1,0 +1,62 @@
+# Source files
+src/
+examples/
+docs/
+
+# Config files
+.eslintrc.cjs
+.prettierrc
+.editorconfig
+tsconfig.json
+tsconfig.build.json
+tsconfig.node.json
+vite.config.ts
+eslint.config.js
+
+# Development files
+*.log
+*.tsbuildinfo
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test files
+__tests__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+coverage/
+
+# Build artifacts
+node_modules/
+.cache/
+
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Documentation (already in repo)
+README.md
+CHANGELOG.md
+LICENSE
+
+# Examples and demos
+demo/
+public/
+
+# Development environment
+.env
+.env.local
+.env.development
+.env.test
+.env.production

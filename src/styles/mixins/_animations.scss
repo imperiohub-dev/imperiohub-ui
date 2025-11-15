@@ -1,0 +1,76 @@
+/**
+ * Animation Mixins
+ */
+
+// Fade in animation
+@mixin fade-in($duration: 0.3s, $delay: 0s) {
+  opacity: 0;
+  animation: fadeIn $duration ease-in $delay forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+// Slide up animation
+@mixin slide-up($duration: 0.4s, $delay: 0s, $distance: 20px) {
+  opacity: 0;
+  transform: translateY($distance);
+  animation: slideUp $duration ease-out $delay forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Slide in from left
+@mixin slide-in-left($duration: 0.4s, $delay: 0s, $distance: 30px) {
+  opacity: 0;
+  transform: translateX(-$distance);
+  animation: slideInLeft $duration ease-out $delay forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Slide in from right
+@mixin slide-in-right($duration: 0.4s, $delay: 0s, $distance: 30px) {
+  opacity: 0;
+  transform: translateX($distance);
+  animation: slideInRight $duration ease-out $delay forwards;
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Scale in animation
+@mixin scale-in($duration: 0.3s, $delay: 0s) {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: scaleIn $duration ease-out $delay forwards;
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Transition mixin
+@mixin transition($properties: all, $duration: 0.3s, $easing: ease) {
+  transition: $properties $duration $easing;
+}

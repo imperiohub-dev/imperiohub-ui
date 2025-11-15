@@ -1,0 +1,12 @@
+/**
+ * Mixins Index
+ *
+ * Forwards all mixin files
+ */
+
+@forward './responsive';
+@forward './animations';
+@forward './utilities';
+@forward './atoms';
+@forward './molecules';
+@forward './sections';

@@ -1,0 +1,30 @@
+/**
+ * Hero Section Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  @include hero-section;
+}
+
+.hero__container {
+  @include hero-container;
+}
+
+.hero__content {
+  @include hero-content;
+}
+
+.hero__image {
+  @include hero-image;
+}
+
+.hero__cta-group {
+  @include hero-cta-group;
+}
+
+.hero__subtitle {
+  max-width: 500px;
+}

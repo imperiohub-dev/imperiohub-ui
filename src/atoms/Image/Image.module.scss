@@ -1,0 +1,30 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.image {
+  @include image-base;
+
+  &--cover {
+    @include image-cover;
+  }
+
+  &--contain {
+    @include image-contain;
+  }
+
+  &--rounded-sm {
+    @include image-rounded-sm;
+  }
+
+  &--rounded-md {
+    @include image-rounded-md;
+  }
+
+  &--rounded-lg {
+    @include image-rounded-lg;
+  }
+
+  &--rounded-full {
+    @include image-rounded-full;
+  }
+}

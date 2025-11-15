@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card {
+  @include card-base;
+
+  &--clickable {
+    @include card-clickable;
+  }
+}
+
+.card__header {
+  @include card-header;
+}
+
+.card__body {
+  @include card-body;
+}
+
+.card__footer {
+  @include card-footer;
+}

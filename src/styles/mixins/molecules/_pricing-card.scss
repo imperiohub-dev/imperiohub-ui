@@ -1,0 +1,5 @@
+@mixin pricing-card-featured {
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+  transform: scale(1.05);
+}
