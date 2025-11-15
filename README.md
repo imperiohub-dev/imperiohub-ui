@@ -27,13 +27,31 @@ ImperioHub UI is designed specifically for **autonomous professionals** (lawyers
 
 ## 🚀 Quick Start
 
+### Installation
+
 ```bash
-npm install imperiohub-ui lucide-react
+# Using npm
+npm install @imperiohub/ui lucide-react
+
+# Using yarn
+yarn add @imperiohub/ui lucide-react
+
+# Using pnpm
+pnpm add @imperiohub/ui lucide-react
 ```
 
+**Peer dependencies:** React 18+ and lucide-react are required.
+
+### Basic Usage
+
+Import the styles and components:
+
 ```tsx
-import { Hero, Features, CTA } from 'imperiohub-ui';
-import 'imperiohub-ui/dist/styles.css';
+// 1. Import the CSS (only once in your app, usually in main.tsx or App.tsx)
+import '@imperiohub/ui/styles.css';
+
+// 2. Import the components you need
+import { Hero, Features, CTA } from '@imperiohub/ui';
 
 function App() {
   return (
@@ -106,6 +124,105 @@ function App() {
   return <LandingPageBuilder config={config} />;
 }
 ```
+
+## 📘 Usage Guide
+
+### Working with Icons
+
+Icons are provided by [Lucide React](https://lucide.dev/). Import and use them directly:
+
+```tsx
+import { CheckCircle, Zap, Heart } from 'lucide-react';
+import { Icon, Features } from '@imperiohub/ui';
+
+// Use with Icon component
+<Icon icon={CheckCircle} size="lg" color="primary" />
+
+// Use with Features section
+<Features
+  title="Our Benefits"
+  features={[
+    { icon: Zap, title: 'Fast', description: 'Lightning speed' },
+    { icon: Heart, title: 'Reliable', description: 'Always there' }
+  ]}
+/>
+```
+
+### Theming
+
+Customize colors using CSS custom properties:
+
+```tsx
+import { injectTheme } from '@imperiohub/ui';
+
+// Apply custom theme
+injectTheme({
+  colors: {
+    primary: '#6366f1',
+    secondary: '#8b5cf6',
+    accent: '#f59e0b',
+  },
+  typography: {
+    fontFamily: {
+      heading: 'Inter, sans-serif',
+      body: 'Inter, sans-serif',
+    },
+  },
+});
+```
+
+Or override CSS variables directly:
+
+```css
+:root {
+  --color-primary: #6366f1;
+  --color-secondary: #8b5cf6;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+```
+
+### Form Validation
+
+Built-in validation with extensibility:
+
+```tsx
+import { FormField } from '@imperiohub/ui';
+
+<FormField
+  type="input"
+  label="Email"
+  placeholder="your@email.com"
+  validation={[
+    { type: 'required', message: 'Email is required' },
+    { type: 'email', message: 'Invalid email format' }
+  ]}
+/>
+
+<FormField
+  type="input"
+  label="Password"
+  validation={[
+    { type: 'required', message: 'Password is required' },
+    { type: 'minLength', value: 8, message: 'Min 8 characters' },
+    {
+      type: 'custom',
+      validator: (value) => /[A-Z]/.test(value),
+      message: 'Must contain uppercase letter'
+    }
+  ]}
+/>
+```
+
+### Responsive Breakpoints
+
+Components are mobile-first and responsive by default:
+
+- `sm`: 640px
+- `md`: 768px
+- `lg`: 1024px
+- `xl`: 1280px
+- `2xl`: 1536px
 
 ## 📚 Documentation
 
@@ -234,6 +351,128 @@ Every component includes:
 - **SCSS** - Styling with CSS Modules
 - **Lucide React** - Icon system
 - **CSS Custom Properties** - Runtime theming
+
+## 💡 Complete Examples
+
+### Example 1: Simple Landing Page
+
+```tsx
+import { Hero, Features, CTA } from '@imperiohub/ui';
+import '@imperiohub/ui/styles.css';
+import { Zap, Shield, Heart } from 'lucide-react';
+
+function LandingPage() {
+  return (
+    <div>
+      <Hero
+        title="Welcome to Our Service"
+        subtitle="The best solution for your business"
+        primaryCta={{ text: 'Get Started', href: '/signup' }}
+        secondaryCta={{ text: 'Learn More', href: '/about' }}
+        variant="centered"
+        gradientTitle
+      />
+
+      <Features
+        title="Why Choose Us"
+        subtitle="Everything you need to succeed"
+        features={[
+          { icon: Zap, title: 'Fast', description: 'Lightning fast performance' },
+          { icon: Shield, title: 'Secure', description: 'Bank-level security' },
+          { icon: Heart, title: 'Support', description: '24/7 customer support' }
+        ]}
+      />
+
+      <CTA
+        title="Ready to Get Started?"
+        description="Join thousands of satisfied customers"
+        primaryCta={{ text: 'Start Free Trial', href: '/signup' }}
+      />
+    </div>
+  );
+}
+```
+
+### Example 2: Contact Form with Validation
+
+```tsx
+import { Contact } from '@imperiohub/ui';
+
+function ContactPage() {
+  const handleSubmit = async (data) => {
+    console.log('Form data:', data);
+    // Send to your API
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      alert('Message sent successfully!');
+    }
+  };
+
+  return (
+    <Contact
+      title="Get in Touch"
+      subtitle="We'd love to hear from you"
+      onSubmit={handleSubmit}
+    />
+  );
+}
+```
+
+### Example 3: JSON-Driven Page (No Code Required)
+
+Perfect for CMS integration or AI-generated content:
+
+```tsx
+import { LandingPageBuilder } from '@imperiohub/ui';
+
+// This config could come from a CMS, API, or AI
+const config = {
+  navigation: {
+    logo: '/logo.svg',
+    links: [
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services' },
+      { label: 'Contact', href: '/contact' }
+    ]
+  },
+  sections: [
+    {
+      type: 'hero',
+      data: {
+        title: 'AI-Generated Landing Page',
+        subtitle: 'Built from JSON configuration',
+        primaryCta: { text: 'Explore', href: '/explore' }
+      }
+    },
+    {
+      type: 'pricing',
+      data: {
+        title: 'Choose Your Plan',
+        plans: [
+          {
+            title: 'Basic',
+            price: 29,
+            period: '/month',
+            features: ['Feature 1', 'Feature 2'],
+            ctaText: 'Get Started'
+          }
+        ]
+      }
+    }
+  ],
+  footer: {
+    copyright: '© 2024 Your Company'
+  }
+};
+
+function App() {
+  return <LandingPageBuilder config={config} />;
+}
+```
 
 ## 🎯 Use Cases
 
