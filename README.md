@@ -148,39 +148,59 @@ import { Icon, Features } from '@imperiohub/ui';
 />
 ```
 
-### Theming
+### Advanced Theming System
 
-Customize colors using CSS custom properties:
+> Change your entire site design in 1 line of code
+
+**Quick Start:**
 
 ```tsx
-import { injectTheme } from '@imperiohub/ui';
+import { injectTheme, professionalTheme } from '@imperiohub/ui';
 
-// Apply custom theme
-injectTheme({
-  colors: {
-    primary: '#6366f1',
-    secondary: '#8b5cf6',
-    accent: '#f59e0b',
-  },
-  typography: {
-    fontFamily: {
-      heading: 'Inter, sans-serif',
-      body: 'Inter, sans-serif',
-    },
-  },
-});
+// Apply theme in 1 line
+injectTheme(professionalTheme);
 ```
 
-Or override CSS variables directly:
+**Dark Mode in 30 Seconds:**
 
-```css
-:root {
-  --color-primary: #6366f1;
-  --color-secondary: #8b5cf6;
-  --font-heading: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
+```tsx
+import { ThemeProvider, DarkModeToggle } from '@imperiohub/ui';
+
+function App() {
+  return (
+    <ThemeProvider>
+      <header>
+        <DarkModeToggle />
+      </header>
+      <main>{/* Your content */}</main>
+    </ThemeProvider>
+  );
 }
 ```
+
+**10 Pre-built Themes:**
+
+- `lightTheme` - Default light (indigo/purple)
+- `darkTheme` - Dark mode
+- `professionalTheme` - Blue palette for lawyers/consultants
+- `medicalTheme` - Green/blue for doctors/healthcare
+- `creativeTheme` - Vibrant for designers/artists
+- `technicalTheme` - Gray/blue for engineers/tech
+- `elegantTheme` - Premium gold/black for luxury
+- `modernTheme` - Minimalist contemporary
+- `vibrantTheme` - Bold and energetic
+- `earthTheme` - Natural brown/green
+
+**Features:**
+
+- 10+ professionally designed themes (all WCAG 2.1 AA compliant)
+- Dark mode with system preference detection
+- Automatic localStorage persistence
+- Multi-theme support on same page
+- Custom theme creation without SCSS
+- Type-safe theme tokens
+
+See [THEMING.md](./docs/THEMING.md) for complete documentation.
 
 ### Form Validation
 
@@ -230,6 +250,7 @@ Components are mobile-first and responsive by default:
 - [**Molecules**](./docs/MOLECULES.md) - Composed components
 - [**Sections**](./docs/SECTIONS.md) - Landing page sections
 - [**Builders**](./docs/BUILDERS.md) - JSON-driven page building ✨ NEW
+- [**Theming**](./docs/THEMING.md) - Advanced theming system ✨ NEW
 - [**Styling Guide**](./docs/STYLING.md) - Theming and customization
 - [**AI Integration**](./docs/AI_INTEGRATION.md) - Using with AI
 
