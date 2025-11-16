@@ -1,0 +1,76 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.serviceCard {
+  @include service-card-base;
+
+  &--default { @include service-card-variant-default; }
+  &--highlighted { @include service-card-variant-highlighted; }
+  &--minimal { @include service-card-variant-minimal; }
+
+  &__icon {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  &__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-sm) 0;
+  }
+
+  &__description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0 0 var(--spacing-md) 0;
+  }
+
+  &__pricing {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  &__price {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+  }
+
+  &__duration {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  &__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-lg) 0;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  &__checkmark {
+    color: var(--color-success);
+    font-weight: var(--font-weight-bold);
+    flex-shrink: 0;
+  }
+
+  &__cta {
+    width: 100%;
+    margin-top: auto;
+  }
+}

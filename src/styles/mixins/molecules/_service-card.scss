@@ -1,0 +1,42 @@
+@use '../../variables' as *;
+
+@mixin service-card-base {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+}
+
+@mixin service-card-variant-default {
+  background: var(--color-background);
+  border: 1px solid var(--color-neutral-200);
+
+  &:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+@mixin service-card-variant-highlighted {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-600) 100%);
+  color: white;
+  border: none;
+
+  .serviceCard__title,
+  .serviceCard__description,
+  .serviceCard__feature {
+    color: white;
+  }
+
+  .serviceCard__price {
+    color: white;
+  }
+}
+
+@mixin service-card-variant-minimal {
+  background: transparent;
+  border: none;
+  padding: var(--spacing-xl);
+}

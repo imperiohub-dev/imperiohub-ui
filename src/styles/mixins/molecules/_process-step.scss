@@ -1,0 +1,28 @@
+@use '../../variables' as *;
+
+@mixin process-step-base {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: flex-start;
+}
+
+@mixin process-step-variant-numbered {
+  // Default style
+}
+
+@mixin process-step-variant-icon {
+  .processStep__number {
+    background: var(--color-primary-100);
+    color: var(--color-primary);
+  }
+}
+
+@mixin process-step-variant-minimal {
+  gap: var(--spacing-md);
+
+  .processStep__number {
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-size-base);
+  }
+}

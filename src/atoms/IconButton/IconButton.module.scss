@@ -1,0 +1,111 @@
+/**
+ * IconButton Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.iconButton {
+  @include icon-button-base;
+
+  // Sizes
+  &--sm {
+    @include icon-button-size-sm;
+  }
+
+  &--md {
+    @include icon-button-size-md;
+  }
+
+  &--lg {
+    @include icon-button-size-lg;
+  }
+
+  // Variants & Colors - Filled
+  &--filled {
+    &.iconButton--primary {
+      @include icon-button-variant-filled-primary;
+    }
+
+    &.iconButton--secondary {
+      @include icon-button-variant-filled-secondary;
+    }
+
+    &.iconButton--success {
+      @include icon-button-variant-filled-success;
+    }
+
+    &.iconButton--error {
+      @include icon-button-variant-filled-error;
+    }
+
+    &.iconButton--neutral {
+      @include icon-button-variant-filled-neutral;
+    }
+  }
+
+  // Variants & Colors - Outline
+  &--outline {
+    &.iconButton--primary {
+      @include icon-button-variant-outline-primary;
+    }
+
+    &.iconButton--secondary {
+      @include icon-button-variant-outline-secondary;
+    }
+
+    &.iconButton--success {
+      @include icon-button-variant-outline-success;
+    }
+
+    &.iconButton--error {
+      @include icon-button-variant-outline-error;
+    }
+
+    &.iconButton--neutral {
+      @include icon-button-variant-outline-neutral;
+    }
+  }
+
+  // Variants & Colors - Ghost
+  &--ghost {
+    &.iconButton--primary {
+      @include icon-button-variant-ghost-primary;
+    }
+
+    &.iconButton--secondary {
+      @include icon-button-variant-ghost-secondary;
+    }
+
+    &.iconButton--success {
+      @include icon-button-variant-ghost-success;
+    }
+
+    &.iconButton--error {
+      @include icon-button-variant-ghost-error;
+    }
+
+    &.iconButton--neutral {
+      @include icon-button-variant-ghost-neutral;
+    }
+  }
+
+  // States
+  &--rounded {
+    border-radius: var(--radius-full);
+  }
+
+  // Elements
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

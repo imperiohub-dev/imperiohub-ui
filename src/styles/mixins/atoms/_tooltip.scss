@@ -1,0 +1,47 @@
+/**
+ * Tooltip Mixins
+ *
+ * Reusable mixins for tooltip component
+ */
+
+@use '../../variables' as *;
+
+// Base tooltip styles
+@mixin tooltip-base {
+  background-color: var(--color-neutral-900);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+  max-width: 250px;
+  word-wrap: break-word;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+// Visible state
+@mixin tooltip-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// Position variants
+@mixin tooltip-position-top {
+  // Arrow positioned at bottom
+}
+
+@mixin tooltip-position-bottom {
+  // Arrow positioned at top
+}
+
+@mixin tooltip-position-left {
+  // Arrow positioned at right
+}
+
+@mixin tooltip-position-right {
+  // Arrow positioned at left
+}

@@ -1,0 +1,101 @@
+/**
+ * StatCard Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.statCard {
+  @include stat-card-base;
+
+  // Variants
+  &--default {
+    @include stat-card-variant-default;
+  }
+
+  &--highlighted {
+    @include stat-card-variant-highlighted;
+  }
+
+  &--minimal {
+    @include stat-card-variant-minimal;
+  }
+
+  // Elements
+  &__icon {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-lg);
+    background: var(--color-primary-100);
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__value {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-xs);
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    line-height: 1;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  &__number {
+    font-size: var(--font-size-4xl);
+
+    @include md {
+      font-size: var(--font-size-5xl);
+    }
+  }
+
+  &__prefix,
+  &__suffix {
+    font-size: var(--font-size-2xl);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  &__label {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  &__trend {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    padding: 2px var(--spacing-xs);
+    border-radius: var(--radius-sm);
+
+    &--up {
+      color: var(--color-success);
+      background: var(--color-success-100);
+    }
+
+    &--down {
+      color: var(--color-error);
+      background: var(--color-error-100);
+    }
+  }
+}

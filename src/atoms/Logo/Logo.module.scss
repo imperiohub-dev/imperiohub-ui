@@ -1,0 +1,98 @@
+/**
+ * Logo Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.logo {
+  @include logo-base;
+
+  // Sizes
+  &--sm {
+    @include logo-size-sm;
+  }
+
+  &--md {
+    @include logo-size-md;
+  }
+
+  &--lg {
+    @include logo-size-lg;
+  }
+
+  // Variants
+  &--light {
+    @include logo-variant-light;
+  }
+
+  &--dark {
+    @include logo-variant-dark;
+  }
+
+  &--color {
+    @include logo-variant-color;
+  }
+
+  // States
+  &--clickable {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  &--with-text {
+    gap: var(--spacing-sm);
+  }
+
+  // Elements
+  &__link {
+    text-decoration: none;
+    display: inline-flex;
+    transition: opacity 0.2s ease;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
+      border-radius: var(--radius-sm);
+    }
+  }
+
+  &__imageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__image,
+  &__svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__svg {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__text {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    font-size: inherit;
+    color: inherit;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,70 @@
+/**
+ * Rating Mixins
+ *
+ * Reusable mixins for rating component variants and states
+ */
+
+@use '../../variables' as *;
+
+// Base rating styles
+@mixin rating-base {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  user-select: none;
+}
+
+// Rating sizes
+@mixin rating-size-sm {
+  font-size: var(--font-size-sm);
+
+  .rating__starIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .rating__label {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@mixin rating-size-md {
+  font-size: var(--font-size-base);
+
+  .rating__starIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .rating__label {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@mixin rating-size-lg {
+  font-size: var(--font-size-lg);
+
+  .rating__starIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .rating__label {
+    font-size: var(--font-size-base);
+  }
+}
+
+// Interactive rating (clickable)
+@mixin rating-interactive {
+  .rating__star {
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}

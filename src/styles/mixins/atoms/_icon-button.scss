@@ -1,0 +1,253 @@
+/**
+ * IconButton Mixins
+ *
+ * Reusable mixins for icon button component variants and states
+ */
+
+@use '../../variables' as *;
+
+// Base icon button styles
+@mixin icon-button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  aspect-ratio: 1;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// Icon button sizes
+@mixin icon-button-size-sm {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  border-radius: var(--radius-sm);
+}
+
+@mixin icon-button-size-md {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: var(--radius-md);
+}
+
+@mixin icon-button-size-lg {
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  border-radius: var(--radius-md);
+}
+
+// Filled variants
+@mixin icon-button-variant-filled-primary {
+  background-color: var(--color-primary);
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-600);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+@mixin icon-button-variant-filled-secondary {
+  background-color: var(--color-secondary);
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-secondary-600);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+@mixin icon-button-variant-filled-success {
+  background-color: var(--color-success);
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-success-600);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+@mixin icon-button-variant-filled-error {
+  background-color: var(--color-error);
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-error-600);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+@mixin icon-button-variant-filled-neutral {
+  background-color: var(--color-neutral-200);
+  color: var(--color-text-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-neutral-300);
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+// Outline variants
+@mixin icon-button-variant-outline-primary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary);
+    color: white;
+  }
+}
+
+@mixin icon-button-variant-outline-secondary {
+  background-color: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-secondary);
+    color: white;
+  }
+}
+
+@mixin icon-button-variant-outline-success {
+  background-color: transparent;
+  color: var(--color-success);
+  border-color: var(--color-success);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-success);
+    color: white;
+  }
+}
+
+@mixin icon-button-variant-outline-error {
+  background-color: transparent;
+  color: var(--color-error);
+  border-color: var(--color-error);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-error);
+    color: white;
+  }
+}
+
+@mixin icon-button-variant-outline-neutral {
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border-color: var(--color-neutral-300);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-neutral-200);
+  }
+}
+
+// Ghost variants
+@mixin icon-button-variant-ghost-primary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: transparent;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-100);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-primary-200);
+  }
+}
+
+@mixin icon-button-variant-ghost-secondary {
+  background-color: transparent;
+  color: var(--color-secondary);
+  border-color: transparent;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-secondary-100);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-secondary-200);
+  }
+}
+
+@mixin icon-button-variant-ghost-success {
+  background-color: transparent;
+  color: var(--color-success);
+  border-color: transparent;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-success-100);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-success-200);
+  }
+}
+
+@mixin icon-button-variant-ghost-error {
+  background-color: transparent;
+  color: var(--color-error);
+  border-color: transparent;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-error-100);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-error-200);
+  }
+}
+
+@mixin icon-button-variant-ghost-neutral {
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border-color: transparent;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-neutral-100);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-neutral-200);
+  }
+}

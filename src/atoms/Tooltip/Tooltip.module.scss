@@ -1,0 +1,81 @@
+/**
+ * Tooltip Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.tooltipWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipTrigger {
+  display: inline-flex;
+  cursor: help;
+}
+
+.tooltip {
+  @include tooltip-base;
+
+  // Positions
+  &--top {
+    @include tooltip-position-top;
+  }
+
+  &--bottom {
+    @include tooltip-position-bottom;
+  }
+
+  &--left {
+    @include tooltip-position-left;
+  }
+
+  &--right {
+    @include tooltip-position-right;
+  }
+
+  // Visibility
+  &--visible {
+    @include tooltip-visible;
+  }
+
+  // Elements
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-neutral-900);
+    transform: rotate(45deg);
+  }
+
+  // Arrow positions
+  &--top &__arrow {
+    bottom: -4px;
+    left: 50%;
+    margin-left: -4px;
+  }
+
+  &--bottom &__arrow {
+    top: -4px;
+    left: 50%;
+    margin-left: -4px;
+  }
+
+  &--left &__arrow {
+    right: -4px;
+    top: 50%;
+    margin-top: -4px;
+  }
+
+  &--right &__arrow {
+    left: -4px;
+    top: 50%;
+    margin-top: -4px;
+  }
+}

@@ -1,0 +1,69 @@
+/**
+ * Rating Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.rating {
+  @include rating-base;
+
+  // Sizes
+  &--sm {
+    @include rating-size-sm;
+  }
+
+  &--md {
+    @include rating-size-md;
+  }
+
+  &--lg {
+    @include rating-size-lg;
+  }
+
+  // States
+  &--interactive {
+    @include rating-interactive;
+  }
+
+  // Elements
+  &__stars {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  &__star {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: inherit;
+    transition: transform 0.2s ease;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+  }
+
+  &__starIcon {
+    width: 100%;
+    height: 100%;
+    color: var(--rating-color, var(--color-warning));
+    transition: transform 0.2s ease;
+  }
+
+  &__starPath {
+    stroke: var(--color-warning);
+    stroke-width: 0.5;
+  }
+
+  &__label {
+    font-family: var(--font-body);
+    font-size: inherit;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+    margin-left: var(--spacing-xs);
+  }
+}

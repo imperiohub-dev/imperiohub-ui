@@ -1,0 +1,39 @@
+/**
+ * FAQItem Mixins
+ */
+
+@use '../../variables' as *;
+
+@mixin faq-item-base {
+  border-bottom: 1px solid var(--color-neutral-200);
+  padding: var(--spacing-lg) 0;
+
+  &:first-child {
+    border-top: 1px solid var(--color-neutral-200);
+  }
+}
+
+@mixin faq-item-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary);
+
+    .faqItem__toggleIcon {
+      color: var(--color-primary);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+}

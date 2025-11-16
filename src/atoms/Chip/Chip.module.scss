@@ -1,0 +1,157 @@
+/**
+ * Chip Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.chip {
+  @include chip-base;
+
+  // Sizes
+  &--sm {
+    @include chip-size-sm;
+  }
+
+  &--md {
+    @include chip-size-md;
+  }
+
+  &--lg {
+    @include chip-size-lg;
+  }
+
+  // Variants - Filled
+  &--filled {
+    &.chip--primary {
+      @include chip-variant-filled-primary;
+    }
+
+    &.chip--secondary {
+      @include chip-variant-filled-secondary;
+    }
+
+    &.chip--success {
+      @include chip-variant-filled-success;
+    }
+
+    &.chip--warning {
+      @include chip-variant-filled-warning;
+    }
+
+    &.chip--error {
+      @include chip-variant-filled-error;
+    }
+
+    &.chip--neutral {
+      @include chip-variant-filled-neutral;
+    }
+  }
+
+  // Variants - Outline
+  &--outline {
+    &.chip--primary {
+      @include chip-variant-outline-primary;
+    }
+
+    &.chip--secondary {
+      @include chip-variant-outline-secondary;
+    }
+
+    &.chip--success {
+      @include chip-variant-outline-success;
+    }
+
+    &.chip--warning {
+      @include chip-variant-outline-warning;
+    }
+
+    &.chip--error {
+      @include chip-variant-outline-error;
+    }
+
+    &.chip--neutral {
+      @include chip-variant-outline-neutral;
+    }
+  }
+
+  // Variants - Subtle
+  &--subtle {
+    &.chip--primary {
+      @include chip-variant-subtle-primary;
+    }
+
+    &.chip--secondary {
+      @include chip-variant-subtle-secondary;
+    }
+
+    &.chip--success {
+      @include chip-variant-subtle-success;
+    }
+
+    &.chip--warning {
+      @include chip-variant-subtle-warning;
+    }
+
+    &.chip--error {
+      @include chip-variant-subtle-error;
+    }
+
+    &.chip--neutral {
+      @include chip-variant-subtle-neutral;
+    }
+  }
+
+  // States
+  &--clickable {
+    @include chip-clickable;
+  }
+
+  &--removable {
+    padding-right: var(--spacing-xs);
+  }
+
+  // Elements
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+  }
+
+  &__label {
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  &__remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    margin-left: var(--spacing-xs);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: currentColor;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+  }
+
+  &__removeIcon {
+    width: 12px;
+    height: 12px;
+  }
+}
