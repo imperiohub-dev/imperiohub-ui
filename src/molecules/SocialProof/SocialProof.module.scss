@@ -1,0 +1,58 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.socialProof {
+  @include social-proof-base;
+
+  &--logos {
+    @include social-proof-variant-logos;
+  }
+
+  &--cards {
+    @include social-proof-variant-cards;
+  }
+
+  &--minimal {
+    @include social-proof-variant-minimal;
+  }
+
+  &--scrollable {
+    .socialProof__grid {
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--color-neutral-300);
+        border-radius: var(--radius-full);
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-xl);
+    align-items: center;
+
+    @include md {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

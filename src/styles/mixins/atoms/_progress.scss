@@ -1,0 +1,79 @@
+/**
+ * Progress Mixins
+ *
+ * Reusable mixins for progress component variants and states
+ */
+
+@use '../../variables' as *;
+
+// Base progress styles
+@mixin progress-base {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+// Linear variant
+@mixin progress-linear {
+  width: 100%;
+  flex-direction: row;
+}
+
+// Circular variant
+@mixin progress-circular {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Linear sizes
+@mixin progress-linear-size-sm {
+  .progress__track {
+    height: 4px;
+  }
+
+  .progress__label {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@mixin progress-linear-size-md {
+  .progress__track {
+    height: 6px;
+  }
+
+  .progress__label {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@mixin progress-linear-size-lg {
+  .progress__track {
+    height: 8px;
+  }
+
+  .progress__label {
+    font-size: var(--font-size-base);
+  }
+}
+
+// Circular sizes (handled in component with radius prop)
+@mixin progress-circular-size-sm {
+  width: 40px;
+  height: 40px;
+}
+
+@mixin progress-circular-size-md {
+  width: 56px;
+  height: 56px;
+}
+
+@mixin progress-circular-size-lg {
+  width: 72px;
+  height: 72px;
+}
+
+// Indeterminate animation
+@mixin progress-indeterminate-animation {
+  animation: progress-indeterminate 1.5s ease-in-out infinite;
+}

@@ -1,0 +1,66 @@
+/**
+ * Logo Mixins
+ *
+ * Reusable mixins for logo component variants and states
+ */
+
+@use '../../variables' as *;
+
+// Base logo styles
+@mixin logo-base {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  transition: opacity 0.2s ease;
+}
+
+// Logo sizes
+@mixin logo-size-sm {
+  height: var(--logo-size, 32px);
+  font-size: var(--font-size-sm);
+}
+
+@mixin logo-size-md {
+  height: var(--logo-size, 48px);
+  font-size: var(--font-size-lg);
+}
+
+@mixin logo-size-lg {
+  height: var(--logo-size, 64px);
+  font-size: var(--font-size-2xl);
+}
+
+// Logo variants
+@mixin logo-variant-light {
+  color: white;
+
+  .logo__svg svg {
+    fill: white;
+    color: white;
+  }
+
+  .logo__image {
+    filter: brightness(0) invert(1);
+  }
+}
+
+@mixin logo-variant-dark {
+  color: var(--color-text-primary);
+
+  .logo__svg svg {
+    fill: currentColor;
+  }
+
+  .logo__image {
+    // No filter, use original colors
+  }
+}
+
+@mixin logo-variant-color {
+  color: var(--color-text-primary);
+
+  .logo__svg svg,
+  .logo__image {
+    // Use original colors
+  }
+}

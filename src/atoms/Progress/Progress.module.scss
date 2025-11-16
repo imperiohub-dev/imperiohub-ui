@@ -1,0 +1,132 @@
+/**
+ * Progress Component Styles
+ */
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.progress {
+  @include progress-base;
+  color: var(--progress-color, var(--color-primary));
+
+  // Variants
+  &--linear {
+    @include progress-linear;
+  }
+
+  &--circular {
+    @include progress-circular;
+  }
+
+  // Sizes (linear)
+  &--linear.progress--sm {
+    @include progress-linear-size-sm;
+  }
+
+  &--linear.progress--md {
+    @include progress-linear-size-md;
+  }
+
+  &--linear.progress--lg {
+    @include progress-linear-size-lg;
+  }
+
+  // Sizes (circular)
+  &--circular.progress--sm {
+    @include progress-circular-size-sm;
+  }
+
+  &--circular.progress--md {
+    @include progress-circular-size-md;
+  }
+
+  &--circular.progress--lg {
+    @include progress-circular-size-lg;
+  }
+
+  // States
+  &--indeterminate {
+    .progress__fill {
+      @include progress-indeterminate-animation;
+    }
+
+    .progress__circularFill {
+      animation: progress-circular-spin 1.4s linear infinite;
+    }
+  }
+
+  // Elements
+  &__track {
+    flex: 1;
+    background-color: var(--color-neutral-200);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__fill {
+    height: 100%;
+    background-color: currentColor;
+    border-radius: var(--radius-full);
+    transition: width 0.3s ease;
+  }
+
+  &__circular {
+    transform: rotate(0deg);
+  }
+
+  &__circularTrack {
+    // Styles defined inline
+  }
+
+  &__circularFill {
+    transition: stroke-dashoffset 0.3s ease;
+    stroke-linecap: round;
+  }
+
+  &__label {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    margin-left: var(--spacing-sm);
+    white-space: nowrap;
+  }
+
+  // Circular variant label
+  &--circular &__label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: var(--font-size-xs);
+  }
+
+  &--circular.progress--md &__label {
+    font-size: var(--font-size-sm);
+  }
+
+  &--circular.progress--lg &__label {
+    font-size: var(--font-size-base);
+  }
+}
+
+// Indeterminate animation
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+@keyframes progress-circular-spin {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}

@@ -1,0 +1,46 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.faqSection {
+  padding: var(--spacing-4xl) var(--spacing-lg);
+  background: var(--color-background);
+
+  &__container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  &__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-md) 0;
+
+    @include md {
+      font-size: var(--font-size-4xl);
+    }
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  &__content {
+    // FAQItems will be rendered here
+  }
+
+  &--two-column &__content {
+    @include lg {
+      column-count: 2;
+      column-gap: var(--spacing-2xl);
+    }
+  }
+}

@@ -14,6 +14,8 @@ export type { PageBuilderProps } from './PageBuilder';
 export { LandingPageBuilder } from './LandingPageBuilder';
 export type { LandingPageBuilderProps } from './LandingPageBuilder';
 
+export * from './TemplateLoader';
+
 // Utilities
 export { resolveIcon, getAvailableIcons, isValidIcon } from './utils/iconResolver';
 export {
